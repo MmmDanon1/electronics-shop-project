@@ -11,6 +11,13 @@ def fixture_total_price():
     return item1
 
 @pytest.fixture
+def fixture_discount():
+    return 8000.0
+
+@pytest.fixture
 def fixture_apply_discount():
-    return 10000.0
+    item1 = Item("Смартфон", 10000, 20)
+    Item.pay_rate = 0.8
+    item1.apply_discount()
+    return item1.price
 
