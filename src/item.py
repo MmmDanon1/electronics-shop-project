@@ -23,10 +23,14 @@ class Item:
 
         :return: Общая стоимость товара.
         """
-        pass
+        self.price *= self.quantity
+        return self.price
 
-    def apply_discount(self) -> None:
+
+    def apply_discount(self) -> float:
         """
         Применяет установленную скидку для конкретного товара.
         """
-        pass
+        self.price *= Item.pay_rate
+        return self.price
+
