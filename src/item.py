@@ -34,8 +34,6 @@ class Item:
         """
         return self.__name
 
-
-
     def calculate_total_price(self) -> float:
         """
         Рассчитывает общую стоимость конкретного товара в магазине.
