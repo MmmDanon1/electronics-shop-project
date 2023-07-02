@@ -86,6 +86,11 @@ class Item:
         number_float = float(number)
         return math.floor(number_float)
 
+    def __add__(self, other):
+        if isinstance(other, self.__class__):
+            return self.quantity + other.quantity
+
+
 
 
 
