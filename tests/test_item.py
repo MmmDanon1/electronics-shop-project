@@ -1,5 +1,6 @@
 from src.item import Item
 from src.phone import Phone
+from src.keyboard import KeyBoard
 
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 def test_calculate_total_price(fixture_calculate_total_price, fixture_total_price):
@@ -43,6 +44,25 @@ def test_number_sim_card():
 def test_name_subclass():
     phone1 = Phone("iPhone 14", 120_000, 5, 2)
     assert phone1.name == "iPhone 14"
+
+def test_class_name():
+    kb = KeyBoard('Dark Project KD87A', 9600, 5)
+    assert str(kb) == "Dark Project KD87A"
+
+def test_kb_language():
+    kb = KeyBoard('Dark Project KD87A', 9600, 5)
+    assert str(kb.language) == "EN"
+
+def test_kb_selectid_language():
+    kb = KeyBoard('Dark Project KD87A', 9600, 5)
+    kb.change_lang()
+    assert str(kb.language) == "RU"
+    kb.change_lang().change_lang()
+    assert str(kb.language) == "RU"
+
+
+
+
 
 
 
