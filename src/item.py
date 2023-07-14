@@ -90,11 +90,18 @@ class Item:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
                     name, price, quantity = row['name'], row['price'], row['quantity']
+                    if name or price or quantity == '':
+                        raise InstantiateCSVError("Файл item.csv поврежден")
                     cls(name, float(price), int(quantity))
         except FileNotFoundError:
             print("FileNotFoundError: Отсутствует файл item.csv")
-        except Exception:
-            print("InstantiateCSVError: файд поврежден")
+        # if name or price or quantity == '':
+        #     raise InstantiateCSVError("Файл item.csv поврежден")
+        # for file in open(file_name):
+        #     file_split = file.split(",")
+        #     if "" in file_split:
+        #         raise InstantiateCSVError("Файл item.csv поврежден")
+
 
 
 
