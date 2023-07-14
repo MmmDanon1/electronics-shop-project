@@ -7,12 +7,10 @@ class InstantiateCSVError(Exception):
     Класс-исключение
     """
     def __init__(self, *args, **kwargs):
-
         self.message = args[0] if args else "InstantiateCSVError: Файл item.csv поврежден"
 
     def __str__(self):
         return self.message
-
 
 class Item:
     """
@@ -95,16 +93,6 @@ class Item:
                     cls(name, float(price), int(quantity))
         except FileNotFoundError:
             print("FileNotFoundError: Отсутствует файл item.csv")
-        # if name or price or quantity == '':
-        #     raise InstantiateCSVError("Файл item.csv поврежден")
-        # for file in open(file_name):
-        #     file_split = file.split(",")
-        #     if "" in file_split:
-        #         raise InstantiateCSVError("Файл item.csv поврежден")
-
-
-
-
 
     @staticmethod
     def string_to_number(number: str) -> int:
